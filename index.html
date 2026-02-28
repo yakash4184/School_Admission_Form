@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admission Form – Savitri Balika Inter College</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@400;600;700&family=Source+Sans+3:wght@300;400;600,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&amp;family=Cormorant+Garamond:wght@400;600;700&amp;family=Source+Sans+3:wght@300;400;600,700&amp;display=swap" rel="stylesheet">
 <style>
   :root {
     --navy: #0a2463;
@@ -59,6 +59,7 @@
   .btn-submit { background: var(--gold); color: var(--navy); border: 2px solid var(--gold); }
   .btn-submit:hover { background: var(--gold-light); }
   .btn-pdf { background: #2a7a2a; color: white; border: 2px solid #2a7a2a; }
+  .btn-pdf:hover { background: #236a23; }
 
   /* FORM PAGE */
   .form-page { background: white; width: 100%; padding: 0; box-shadow: 0 4px 30px rgba(10,36,99,0.18); position: relative; overflow: hidden; }
@@ -72,14 +73,14 @@
   /* LOGO */
   .logo-circle { width: 106px; height: 106px; border-radius: 50%; background: white; border: 3px solid var(--gold); display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden; box-shadow: 0 0 0 4px rgba(201,168,76,0.3); }
   .logo-circle svg { width: 72%; height: 72%; display: block; }
-  .logo-circle img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center; transform: scale(1.08); }
+  .logo-circle img { width: 100%; height: 100%; display: block; object-fit: contain; object-position: center; border-radius: 50%; background: transparent; padding: 0; box-sizing: border-box; }
 
   .school-info { flex: 1; text-align: center; min-width: 0; }
-  .school-name { font-family: 'Cormorant Garamond', serif; color: white; font-size: clamp(24px, 3vw, 44px); font-weight: 800; letter-spacing: 0.35px; line-height: 1.12; text-shadow: 0 2px 10px rgba(0,0,0,0.35); text-transform: uppercase; white-space: nowrap; }
+  .school-name { font-family: 'Cormorant Garamond', serif; color: white; font-size: clamp(24px, 2.2vw, 36px); font-weight: 800; letter-spacing: 0.2px; line-height: 1.1; text-shadow: 0 2px 10px rgba(0,0,0,0.35); text-transform: uppercase; white-space: nowrap; }
   .school-name-hindi { color: var(--gold-light); font-size: 15px; margin-top: 3px; font-weight: 400; }
-  .school-sub { color: rgba(255,255,255,0.82); font-size: 16px; margin-top: 10px; letter-spacing: 0.8px; font-weight: 600; text-transform: uppercase; }
-  .address-line { color: rgba(255,255,255,0.8); font-family: 'Cinzel', serif; font-size: clamp(13px, 1.45vw, 22px); letter-spacing: 0.8px; font-weight: 600; }
-  .affiliation-line { color: var(--gold-light); font-family: 'Cinzel', serif; font-size: clamp(14px, 1.6vw, 24px); margin-top: 10px; font-weight: 700; letter-spacing: 0.9px; }
+  .school-sub { color: rgba(255,255,255,0.9); font-size: 15px; margin-top: 8px; letter-spacing: 0.55px; font-weight: 600; text-transform: uppercase; line-height: 1.25; }
+  .address-line { color: rgba(255,255,255,0.88); font-family: 'Cinzel', serif; font-size: clamp(12px, 1.05vw, 15px); letter-spacing: 0.55px; font-weight: 600; }
+  .affiliation-line { color: var(--gold-light); font-family: 'Cinzel', serif; font-size: clamp(11px, 0.95vw, 14px); margin-top: 7px; font-weight: 700; letter-spacing: 0.45px; }
   .gold-line { height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 0; }
 
   /* FORM TITLE BAND */
@@ -137,6 +138,9 @@
   .cat-item { border:1.5px solid var(--border); background:var(--box-bg); padding:8px 10px; border-radius:4px; font-weight:700; min-width:56px; text-align:center; cursor:pointer; }
   .cat-item input { display:none; }
   .cat-item.checked { border-color: var(--navy); box-shadow:0 2px 6px rgba(10,36,99,0.08); background:white; }
+  .checkbox-group { display: flex; flex-wrap: wrap; gap: 10px; }
+  .checkbox-item { border: 1.5px solid var(--border); background: var(--box-bg); padding: 8px 12px; border-radius: 4px; font-size: 12px; font-weight: 600; color: var(--text); display: flex; align-items: center; gap: 7px; }
+  .checkbox-item input { accent-color: var(--navy); }
 
   /* PHOTO BOXES */
   .photo-row { display: flex; gap: 18px; justify-content: flex-end; margin-bottom: 16px; }
@@ -169,7 +173,7 @@
   .note { padding:10px 12px; background:#fff8e6; border:1px solid var(--gold); border-radius:4px; color:var(--muted); font-size:13px; }
 
   /* PRINT STYLES */
-  @media print { body { background: white; margin: 0; font-size: 11px; } .controls { display: none !important; } .page-wrapper { margin: 0; gap: 0; max-width: 100%; } .form-page { box-shadow: none; page-break-after: always; } .form-page:last-child { page-break-after: avoid; } .form-header::before { opacity: 0.07; } .form-header::after { background: rgba(10,36,99,0.96); } @page { size: A4; margin: 8mm 10mm; } .form-body { padding: 16px 28px 20px; } .form-header { padding: 18px 28px 16px; } .form-title-band { padding: 7px 28px; } .form-footer { padding: 8px 28px; } input, select, textarea { background: white !important; -webkit-print-color-adjust: exact; } .photo-frame { border-style: solid !important; border-color: #aaa !important; } .section-title { -webkit-print-color-adjust: exact; } .form-header { -webkit-print-color-adjust: exact; } .form-title-band { -webkit-print-color-adjust: exact; } .form-footer { -webkit-print-color-adjust: exact; } }
+  @media print { body { background: white; margin: 0; font-size: 11px; } .controls { display: none !important; } .page-wrapper { margin: 0; gap: 0; max-width: 100%; } .form-page { box-shadow: none; page-break-after: always; } .form-page:last-child { page-break-after: avoid; } .form-header::before { opacity: 0.07; } .form-header::after { background: rgba(10,36,99,0.96); } @page { size: A4; margin: 8mm 10mm; } .form-body { padding: 16px 28px 20px; } .form-header { padding: 18px 28px 16px; } .form-title-band { padding: 7px 28px; } .form-footer { padding: 8px 28px; } .school-name { font-family: 'Cinzel', 'Times New Roman', serif; font-size: 35px; letter-spacing: 0.1px; font-weight: 700; } .school-sub { line-height: 1.2; } .address-line { font-family: 'Cinzel', 'Times New Roman', serif; font-size: 35px; letter-spacing: 0.5px; margin-top: 7px; font-weight: 600; } .affiliation-line { font-family: 'Cinzel', 'Times New Roman', serif; font-size: 28px; letter-spacing: 0.45px; margin-top: 6px; font-weight: 700; } .logo-circle img { width: 100%; height: 100%; object-fit: contain; object-position: center; border-radius: 50%; padding: 0; } input, select, textarea { background: white !important; -webkit-print-color-adjust: exact; } .photo-frame { border-style: solid !important; border-color: #aaa !important; } .section-title { -webkit-print-color-adjust: exact; } .form-header { -webkit-print-color-adjust: exact; } .form-title-band { -webkit-print-color-adjust: exact; } .form-footer { -webkit-print-color-adjust: exact; } }
 
   /* RESPONSIVE */
   @media (max-width: 700px) { .form-body { padding: 16px 16px 20px; } .form-header { padding: 18px 16px 16px; } .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } .col-span-2, .col-span-3, .col-span-4 { grid-column: span 1; } .photo-row { justify-content: center; } .sig-row { grid-template-columns: 1fr; gap: 14px; } .subjects-grid { grid-template-columns: 1fr 1fr; } .school-name { font-size: 23px; white-space: normal; } .school-sub { font-size: 13px; letter-spacing: 0.5px; margin-top: 6px; } .address-line { font-size: 12px; letter-spacing: 0.45px; } .affiliation-line { font-size: 13px; margin-top: 8px; letter-spacing: 0.6px; } .aadhar-seg { width: 100%; } }
@@ -181,9 +185,9 @@
 
   <!-- CONTROLS -->
   <div class="controls">
-    <button class="btn btn-print" onclick="window.print()">🖨️ Print Form</button>
-    <button class="btn btn-pdf" onclick="generatePDF()">📄 Generate PDF</button>
-    <button class="btn btn-submit" onclick="submitForm()">✅ Submit Form</button>
+    <button type="button" class="btn btn-print" onclick="window.print()">Print Form</button>
+    <button type="button" class="btn btn-pdf" onclick="generatePDF()">Generate PDF</button>
+    <button type="button" class="btn btn-submit" onclick="submitForm()">Submit Form</button>
   </div>
 
   <!-- ===== PAGE 1 ===== -->
@@ -193,7 +197,7 @@
     <div class="form-header">
       <div class="header-content">
         <div class="logo-circle">
-          <img src="https://raw.githubusercontent.com/yakash4184/image/main/school_logo.png" alt="School Logo">
+          <img src="Balika_Logo.png" alt="Savitri Balika Inter College Logo">
         </div>
         <div class="school-info">
           <div class="school-name">SAVITRI BALIKA INTER COLLEGE</div>
@@ -206,7 +210,7 @@
 
     <!-- FORM TITLE -->
     <div class="form-title-band">
-      <h2>📋 Admission Form</h2>
+      <h2>Admission Form</h2>
       <span class="page-indicator">Page 1 of 2 · Student Details</span>
     </div>
 
@@ -267,7 +271,7 @@
           <div class="photo-box">
             <div class="photo-frame" onclick="document.getElementById('photo-student').click()">
               <svg viewBox="0 0 24 24" fill="none" stroke="#0a2463" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-              <span>Tap to Upload<br>or Paste Photo</span>
+              <span>Tap to Upload<br>Photo</span>
               <img id="preview-student" class="photo-preview" style="display:none;">
             </div>
             <input type="file" id="photo-student" class="photo-input" accept="image/*" onchange="previewPhoto(this,'preview-student')">
@@ -276,7 +280,7 @@
           <div class="photo-box">
             <div class="photo-frame" onclick="document.getElementById('photo-father').click()">
               <svg viewBox="0 0 24 24" fill="none" stroke="#0a2463" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-              <span>Tap to Upload<br>or Paste Photo</span>
+              <span>Tap to Upload<br>Photo</span>
               <img id="preview-father" class="photo-preview" style="display:none;">
             </div>
             <input type="file" id="photo-father" class="photo-input" accept="image/*" onchange="previewPhoto(this,'preview-father')">
@@ -285,7 +289,7 @@
           <div class="photo-box">
             <div class="photo-frame" onclick="document.getElementById('photo-mother').click()">
               <svg viewBox="0 0 24 24" fill="none" stroke="#0a2463" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-              <span>Tap to Upload<br>or Paste Photo</span>
+              <span>Tap to Upload<br>Photo</span>
               <img id="preview-mother" class="photo-preview" style="display:none;">
             </div>
             <input type="file" id="photo-mother" class="photo-input" accept="image/*" onchange="previewPhoto(this,'preview-mother')">
@@ -433,7 +437,7 @@
     <div class="form-header">
       <div class="header-content">
         <div class="logo-circle">
-          <img src="https://raw.githubusercontent.com/yakash4184/image/main/school_logo.png" alt="School Logo">
+          <img src="Balika_Logo.png" alt="Savitri Balika Inter College Logo">
         </div>
         <div class="school-info">
           <div class="school-name">SAVITRI BALIKA INTER COLLEGE</div>
@@ -444,7 +448,7 @@
     </div>
     <div class="gold-line"></div>
     <div class="form-title-band">
-      <h2>👨‍👩‍👧 Parent & Address Details</h2>
+      <h2>Parent &amp; Address Details</h2>
       <span class="page-indicator">Page 2 of 2</span>
     </div>
 
@@ -562,7 +566,7 @@
         </div>
       </div>
 
-      <!-- GURDIAN DETAILS -->
+      <!-- GUARDIAN DETAILS -->
       <div class="section">
         <div class="section-title">Guardian Details</div>
         <div class="grid-2" style="margin-bottom:12px;">
@@ -629,13 +633,13 @@
           <div style="flex:1;">
             <label style="font-size:10.5px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:0.8px; display:block; margin-bottom:6px;">PIN Code</label>
             <div class="pin-group">
-              <input type="text" class="pin-box" maxlength="1" oninput="moveToNext(this)">
-              <input type="text" class="pin-box" maxlength="1" oninput="moveToNext(this)">
-              <input type="text" class="pin-box" maxlength="1" oninput="moveToNext(this)">
+              <input type="text" class="pin-box" maxlength="1">
+              <input type="text" class="pin-box" maxlength="1">
+              <input type="text" class="pin-box" maxlength="1">
               <span style="font-size:18px; color:var(--muted); padding: 0 4px;">–</span>
-              <input type="text" class="pin-box" maxlength="1" oninput="moveToNext(this)">
-              <input type="text" class="pin-box" maxlength="1" oninput="moveToNext(this)">
-              <input type="text" class="pin-box" maxlength="1" oninput="moveToNext(this)">
+              <input type="text" class="pin-box" maxlength="1">
+              <input type="text" class="pin-box" maxlength="1">
+              <input type="text" class="pin-box" maxlength="1">
             </div>
           </div>
           <div style="width:220px;">
@@ -726,7 +730,7 @@
           </div>
           <div class="sig-box">
             <div class="sig-line"></div>
-            <div class="sig-label">Principal Signature & Stamp</div>
+            <div class="sig-label">Principal Signature &amp; Stamp</div>
           </div>
         </div>
 
@@ -734,7 +738,7 @@
           <span style="font-size:18px;">📌</span>
           <div style="font-size:11.5px; color:var(--muted); line-height:1.7;">
             <strong style="color:var(--navy);">Documents Required at the time of Admission:</strong><br>
-            Birth Certificate · Aadhar Card (Student & Parents) · Transfer Certificate (TC) · Mark Sheet of Last Exam · Caste Certificate (if applicable) · 4 Passport Size Photos · Income Certificate (if applicable)
+            Birth Certificate · Aadhar Card (Student &amp; Parents) · Transfer Certificate (TC) · Mark Sheet of Last Exam · Caste Certificate (if applicable) · 4 Passport Size Photos · Income Certificate (if applicable)
           </div>
         </div>
       </div>
@@ -751,11 +755,115 @@
 
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <script>
+  function focusSiblingInput(input, direction) {
+    const container = input.closest(".pin-group, .aadhar-group, .dob-group");
+    if (!container) return;
+    const inputs = Array.from(container.querySelectorAll("input"));
+    const currentIndex = inputs.indexOf(input);
+    const targetIndex = currentIndex + direction;
+    if (targetIndex >= 0 && targetIndex < inputs.length) {
+      inputs[targetIndex].focus();
+    }
+  }
+
+  function sanitizeNumericInput(input, maxLength) {
+    const clean = input.value.replace(/\D/g, "").slice(0, maxLength);
+    input.value = clean;
+    return clean;
+  }
+
+  function wireNumericField(selector, fallbackMaxLength = 1) {
+    document.querySelectorAll(selector).forEach((input) => {
+      input.addEventListener("input", () => {
+        const maxLength = Number(input.getAttribute("maxlength")) || fallbackMaxLength;
+        const clean = sanitizeNumericInput(input, maxLength);
+        if (clean.length === maxLength) {
+          focusSiblingInput(input, 1);
+        }
+      });
+      input.addEventListener("keydown", (event) => {
+        if (event.key === "Backspace" && !input.value) {
+          focusSiblingInput(input, -1);
+        }
+      });
+    });
+  }
+
   function previewPhoto(input, previewId) {
-    const file = input.files[0];
+    const file = input.files && input.files[0];
     if (!file) return;
+
     const reader = new FileReader();
     reader.onload = (e) => {
       const img = document.getElementById(previewId);
-      img.src =
+      if (!img) return;
+      img.src = e.target.result;
+      img.style.display = "block";
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function toggleCat(labelEl) {
+    const input = labelEl.querySelector("input[type='radio']");
+    if (!input) return;
+
+    document.querySelectorAll("input[name='category']").forEach((radio) => {
+      radio.checked = false;
+      const parent = radio.closest(".cat-item");
+      if (parent) parent.classList.remove("checked");
+    });
+
+    input.checked = true;
+    labelEl.classList.add("checked");
+  }
+
+  function buildPdfFileName() {
+    const today = new Date();
+    const dd = String(today.getDate()).padStart(2, "0");
+    const mm = String(today.getMonth() + 1).padStart(2, "0");
+    const yyyy = today.getFullYear();
+    return `admission-form-${dd}-${mm}-${yyyy}.pdf`;
+  }
+
+  async function generatePDF() {
+    const element = document.querySelector(".page-wrapper");
+    if (!element) return;
+
+    if (document.fonts && document.fonts.ready) {
+      await document.fonts.ready;
+    }
+
+    if (window.html2pdf) {
+      const options = {
+        margin: [6, 6, 6, 6],
+        filename: buildPdfFileName(),
+        image: { type: "jpeg", quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true, logging: false, scrollX: 0, scrollY: 0 },
+        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+        pagebreak: { mode: ["css", "legacy"] }
+      };
+      await window.html2pdf().set(options).from(element).save();
+      return;
+    }
+
+    window.print();
+  }
+
+  function submitForm() {
+    alert("Form captured successfully. You can now click Generate PDF.");
+  }
+
+  wireNumericField(".aadhar-seg");
+  wireNumericField(".dob-box");
+  wireNumericField(".pin-box");
+
+  document.querySelectorAll(".mobile-single").forEach((input) => {
+    input.addEventListener("input", () => {
+      sanitizeNumericInput(input, 10);
+    });
+  });
+</script>
+</body>
+</html>
